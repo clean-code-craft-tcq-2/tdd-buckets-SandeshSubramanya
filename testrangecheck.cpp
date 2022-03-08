@@ -7,8 +7,12 @@ using namespace std;
 TEST_CASE(" Test Smallest Possible range") 
 {
   // test the code intially with the smallest range pair.
-  RangePair oPair(4, 5);  
+  vector<int> oInputValues {4,5};
+  
+  //create expected values information.
   SingleRangePairResult oNumbersInRanges;
-  oNumbersInRanges.insert({oPair, 2});
+  oNumbersInRanges.insert({({4, 5}, 2});  // 2-> number of expected entries in range 4,5
   oRangeCheckResults oExpectedResult {oNumbersInRanges};
+                           
+  // oRangeCheckResults oCalculatedResults;
 }
