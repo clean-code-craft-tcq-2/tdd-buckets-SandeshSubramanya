@@ -2,8 +2,8 @@
 
 oRangeCheckResults DetermineRange(std::vector<int> &rfInputValues)
 {
-  oRangeCheckResults oRangeCheckResultsTemp;  // result
-  // for now insert manual code to make the test pass.
+  // for now, write a simple code to make simple test case pass.
+  oRangeCheckResults oRangeCheckResultsTemp;  
   SingleRangePairResult oTotalNumbersInRanges;
   oTotalNumbersInRanges.insert({{4, 5}, 2});
   oRangeCheckResultsTemp.push_back(oTotalNumbersInRanges);
