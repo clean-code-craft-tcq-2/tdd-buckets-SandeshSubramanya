@@ -11,7 +11,7 @@ TEST_CASE(" Test Smallest Possible range")
   
   //create expected values information.
   SingleRangePairResult oNumbersInRanges;
-  oNumbersInRanges.insert({({4, 5}, 2});  // 2-> number of expected entries in range 4,5
+  oNumbersInRanges.insert({{4, 5}, 2});  // 2-> number of expected entries in range 4,5
   oRangeCheckResults oExpectedResult {oNumbersInRanges};
                            
   // oRangeCheckResults oCalculatedResults;
