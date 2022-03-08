@@ -10,11 +10,11 @@ TEST_CASE(" Test Smallest Possible range")
   vector<int> oInputValues {4,5};
   // calculate results.
   oRangeCheckResults oCalculatedResults = DetermineRange(oInputValues);
-  int result = 0;
+  int num_of_readings = 0;
   if(!oCalculatedResults.empty())
   {
     SingleRangePairResult oCalculatedNumbersInRange = oCalculatedResults[0];  // get the map info.
-    result = oCalculatedNumbersInRange.begin()->second;
+    num_of_readings = oCalculatedNumbersInRange.begin()->second;
   }
-  assert(result == 2); // number of elements in the range is expected to be 2.
+  assert(num_of_readings == 2); // number of elements in the range is expected to be 2.
 }
