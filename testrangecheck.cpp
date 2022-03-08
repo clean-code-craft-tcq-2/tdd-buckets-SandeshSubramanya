@@ -8,16 +8,13 @@ TEST_CASE(" Test Smallest Possible range")
 {
   // test the code intially with the smallest range pair.
   vector<int> oInputValues {4,5};
-  
-  //create expected values information.
-  SingleRangePairResult oTotalNumbersInRanges;
-  oTotalNumbersInRanges.insert({{4, 5}, 2});  // 2-> number of expected entries in range 4,5
-  oRangeCheckResults oExpectedResult {oTotalNumbersInRanges};
-  
   // calculate results.
   oRangeCheckResults oCalculatedResults = DetermineRange(oInputValues);
-  SingleRangePairResult oCalculatedNumbersInRange = oCalculatedResults[0];
-  
-  assert(oCalculatedNumbersInRange.begin()->second == 2); // number of elements in the range is expected to be 2.
-  
+  int result = 0;
+  if(!oCalculatedResults.empty())
+  {
+    SingleRangePairResult oCalculatedNumbersInRange = oCalculatedResults[0];  // get the map info.
+    result = oCalculatedNumbersInRange.begin()->second;
+  }
+  assert(result == 2); // number of elements in the range is expected to be 2.
 }
