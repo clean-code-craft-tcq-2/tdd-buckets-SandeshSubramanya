@@ -8,8 +8,7 @@ TEST_CASE(" Test Smallest Possible range")
 {
   // test the code intially with the smallest range pair.
   vector<int> oInputValues {4,5};
-  // calculate results.
-  oRangeCheckResults oCalculatedResults = DetermineRange(oInputValues);
+  oRangeCheckResults oCalculatedResults = CalculateReadingsAndRangeFromValues(oInputValues);
   int num_of_readings = 0;
   if(!oCalculatedResults.empty())
   {
