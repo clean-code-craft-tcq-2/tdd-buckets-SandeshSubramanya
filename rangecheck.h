@@ -7,5 +7,5 @@ typedef std::pair<int,int> RangePair;
 typedef std::map<RangePair, int> SingleRangePairResult; // type to store result corresponding to a particular range.
 typedef std::vector<SingleRangePairResult> oRangeCheckResults;  
 
-oRangeCheckResults DetermineRange(std::vector<int> &rfInputValues);
+oRangeCheckResults CalculateReadingsAndRangeFromValues(std::vector<int> &rfInputValues);
 
