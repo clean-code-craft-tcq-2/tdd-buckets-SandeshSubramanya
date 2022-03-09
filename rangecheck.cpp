@@ -1,6 +1,6 @@
 #include "rangecheck.h"
 
-oRangeCheckResults DetermineRange(std::vector<int> &rfInputValues)
+oRangeCheckResults CalculateReadingsAndRangeFromValues(std::vector<int> &rfInputValues)
 {
   // for now, write a simple code to make simple test case pass.
   oRangeCheckResults oRangeCheckResultsTemp;  
