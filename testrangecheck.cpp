@@ -14,8 +14,8 @@ TEST_CASE(" Test Smallest Possible range")
   if(!oCalculatedResults.empty())
   {
     SingleRangePairResult oCalculatedNumbersInRange = oCalculatedResults[0];  // get the map info.
-    start_of_range = oRangeCheckResultsTemp[0].begin()->first.first;
-    end_of_range = oRangeCheckResultsTemp[0].begin()->first.second;
+    start_of_range = oCalculatedNumbersInRange[0].begin()->first.first;
+    end_of_range = oCalculatedNumbersInRange[0].begin()->first.second;
     num_of_readings = oCalculatedNumbersInRange.begin()->second;
   }
   assert(start_of_range == 4);
