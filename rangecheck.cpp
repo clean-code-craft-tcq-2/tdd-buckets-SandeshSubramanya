@@ -12,9 +12,14 @@ unsigned getIndexOfLastElementInContinousRange(unsigned startIndex, const std::v
            {
                if( (rfInputValues[startIndex+1] - rfInputValues[startIndex]) <= 1)
                {
+                   // continous range.
                    IndexOfLastElementInContinousRange = startIndex + 1;
                    startIndex = IndexOfLastElementInContinousRange;
                    count++;
+               }
+               else
+               {
+                   break;
                }
            }
     return IndexOfLastElementInContinousRange;
