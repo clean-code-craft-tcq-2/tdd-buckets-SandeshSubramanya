@@ -22,6 +22,7 @@ unsigned getIndexOfLastElementInContinousRange(unsigned startIndex, const std::v
                    break;
                }
            }
+    
     return IndexOfLastElementInContinousRange;
 }
 
