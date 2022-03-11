@@ -40,7 +40,7 @@ oRangeCheckResults CalculateReadingsAndRangeFromValues(std::vector<int> &rfInput
       if(startIndex < rfInputValues.size() && indexOfLastElementInContinousRange < rfInputValues.size())
       {
           int firstElementInRange =  rfInputValues[startIndex];
-          int lastElementInRange =  rfInputValues[indexOfLastElementInContinousRange];
+          int lastElementInRange =  (indexOfLastElementInContinousRange != 0)?(rfInputValues[indexOfLastElementInContinousRange]):(rfInputValues[startIndex]); // add the start index value itself as the range end.
           SingleRangePairResult oTotalNumbersInRanges;
           oTotalNumbersInRanges.insert({{firstElementInRange, lastElementInRange}, numberOfElementsInCurrentRange});
           oRangeCheckResultsTemp.push_back(oTotalNumbersInRanges);
