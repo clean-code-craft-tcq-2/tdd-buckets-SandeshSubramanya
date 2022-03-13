@@ -19,7 +19,7 @@ unsigned getIndexOfLastElementInContinousRange(unsigned startIndex, const std::v
                }
                else
                {
-                   break;
+                   break; // continous range ends, break
                }
            }
     
@@ -30,10 +30,11 @@ oRangeCheckResults CalculateReadingsAndRangeFromValues(std::vector<int> &rfInput
 {
   // firstly sort the input values.
   std::sort(rfInputValues.begin(),rfInputValues.end());
+    
   oRangeCheckResults oRangeCheckResultsTemp;  
   SingleRangePairResult oTotalNumbersInRanges;
   unsigned int indexOfLastElementInContinousRange = 0;
-  int numberOfElementsInCurrentRange =1;
+  int numberOfElementsInCurrentRange = 1;
   for(unsigned startIndex = 0; startIndex < rfInputValues.size(); startIndex +=indexOfLastElementInContinousRange)
   {
       numberOfElementsInCurrentRange =1;
