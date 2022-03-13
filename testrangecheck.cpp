@@ -26,24 +26,30 @@ TEST_CASE(" Test Smallest Possible range")
 TEST_CASE("Test Range check functionality with several input values") 
 {
   vector<int> oInputValues {12,18,15,12,14,13,125,180,165,200};
-  // create a vector with expected values to compare.
+  oRangeCheckResults oRangeCheckResultsExpected;  // create a vector with expected values to compare.
+  
   SingleRangePairResult oTotalNumbersInRanges;
   oTotalNumbersInRanges.insert({{12, 15}, 5});
   oRangeCheckResultsExpected.push_back(oTotalNumbersInRanges);
+  oTotalNumbersInRanges.clear();
   
   oTotalNumbersInRanges.insert({{18, 18}, 1});
   oRangeCheckResultsExpected.push_back(oTotalNumbersInRanges);
+  oTotalNumbersInRanges.clear();
   
   oTotalNumbersInRanges.insert({{125, 125}, 1});
   oRangeCheckResultsExpected.push_back(oTotalNumbersInRanges);
+  oTotalNumbersInRanges.clear();
   
   oTotalNumbersInRanges.insert({{165, 165}, 1});
   oRangeCheckResultsExpected.push_back(oTotalNumbersInRanges);
+  oTotalNumbersInRanges.clear();
   
   oTotalNumbersInRanges.insert({{180, 180}, 1});
   oRangeCheckResultsExpected.push_back(oTotalNumbersInRanges);
+  oTotalNumbersInRanges.clear();
   
   oTotalNumbersInRanges.insert({{200, 200}, 1});
   oRangeCheckResultsExpected.push_back(oTotalNumbersInRanges);
-  
+  oTotalNumbersInRanges.clear();
 }
