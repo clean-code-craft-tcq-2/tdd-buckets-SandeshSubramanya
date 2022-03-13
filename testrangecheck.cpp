@@ -52,4 +52,7 @@ TEST_CASE("Test Range check functionality with several input values")
   oTotalNumbersInRanges.insert({{200, 200}, 1});
   oRangeCheckResultsExpected.push_back(oTotalNumbersInRanges);
   oTotalNumbersInRanges.clear();
+  
+  oRangeCheckResults oCalculatedResults = CalculateReadingsAndRangeFromValues(oInputValues);
+  assert(oCalculatedResults.size() == oRangeCheckResultsExpected.size());
 }
