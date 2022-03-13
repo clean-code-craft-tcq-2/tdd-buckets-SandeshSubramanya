@@ -55,4 +55,15 @@ TEST_CASE("Test Range check functionality with several input values")
   
   oRangeCheckResults oCalculatedResults = CalculateReadingsAndRangeFromValues(oInputValues);
   assert(oCalculatedResults.size() == oRangeCheckResultsExpected.size());
+  
+  // check whether the calculated occurence in the range is as expected.
+  std::vector<SingleRangePairResult>::iterator itr = oCalculatedResults.begin();
+  std::vector<SingleRangePairResult>::iterator itrExpected = oRangeCheckResultsExpected.begin();
+  
+  for(; (itr!=oCalculatedResults.end() && itrExpected != oRangeCheckResultsExpected.end()); ++itr,++itrExpected)
+  {
+    assert(itr->begin()->first.first == itrExpected->begin()->first.first); //Range start comparison
+    assert(itr->begin()->first.second == itrExpected->begin()->first.second);  //Range end comparison
+    assert(itr->begin()->second == itrExpected->begin()->second); // number of readings
+  }
 }
