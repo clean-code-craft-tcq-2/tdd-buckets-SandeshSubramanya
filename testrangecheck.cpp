@@ -64,6 +64,6 @@ TEST_CASE("Test Range check functionality with several input values")
   {
     assert(itrCalculatedResult->begin()->first.first == itrExpectedResult->begin()->first.first); //Range start comparison
     assert(itrCalculatedResult->begin()->first.second == itrExpectedResult->begin()->first.second);  //Range end comparison
-    assert(itrCalculatedResult->begin()->second != itrExpectedResult->begin()->second); // number of readings.
+    assert(itrCalculatedResult->begin()->second == itrExpectedResult->begin()->second); // number of readings.
   }
 }
