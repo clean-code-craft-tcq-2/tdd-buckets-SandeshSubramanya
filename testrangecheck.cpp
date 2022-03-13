@@ -57,13 +57,13 @@ TEST_CASE("Test Range check functionality with several input values")
   assert(oCalculatedResults.size() == oRangeCheckResultsExpected.size());
   
   // check whether the calculated occurence in the range is as expected.
-  std::vector<SingleRangePairResult>::iterator itr = oCalculatedResults.begin();
-  std::vector<SingleRangePairResult>::iterator itrExpected = oRangeCheckResultsExpected.begin();
+  std::vector<SingleRangePairResult>::iterator itrCalculatedResult = oCalculatedResults.begin();
+  std::vector<SingleRangePairResult>::iterator itrExpectedResult = oRangeCheckResultsExpected.begin();
   
-  for(; (itr!=oCalculatedResults.end() && itrExpected != oRangeCheckResultsExpected.end()); ++itr,++itrExpected)
+  for(; (itrCalculatedResult!=oCalculatedResults.end() && itrExpectedResult != oRangeCheckResultsExpected.end()); ++itrCalculatedResult,++itrExpectedResult)
   {
-    assert(itr->begin()->first.first == itrExpected->begin()->first.first); //Range start comparison
-    assert(itr->begin()->first.second == itrExpected->begin()->first.second);  //Range end comparison
-    assert(itr->begin()->second == itrExpected->begin()->second); // number of readings
+    assert(itrCalculatedResult->begin()->first.first == itrExpectedResult->begin()->first.first); //Range start comparison
+    assert(itrCalculatedResult->begin()->first.second == itrExpectedResult->begin()->first.second);  //Range end comparison
+    assert(itrCalculatedResult->begin()->second == itrExpectedResult->begin()->second); // number of readings.
   }
 }
