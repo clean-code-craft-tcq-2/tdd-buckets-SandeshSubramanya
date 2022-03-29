@@ -123,31 +123,31 @@ TEST_CASE(" Test Validity of Input value for A2D converter")
     int InputValue {4094};
     enSensorType oSensorType = sensor_type::EN_12_BIT_SENSOR;
     bool expectedValue = true;
-    bool calculated_value_amps= isReadingValid(InputValue,oSensorType);
-    assert(expectedValue_amps == calculated_value_amps);
+    bool calculatedValue = isReadingValid(InputValue,oSensorType);
+    assert(expectedValue == calculatedValue);
   }
 
   {
     int InputValue {0};
     enSensorType oSensorType = sensor_type::EN_12_BIT_SENSOR;
     bool expectedValue = true;
-    bool calculated_value_amps= isReadingValid(InputValue,oSensorType);
-    assert(expectedValue_amps == calculated_value_amps);
+    bool calculatedValue = isReadingValid(InputValue,oSensorType);
+    assert(expectedValue == calculatedValue);
   }
   
   {
     int InputValue {5000};
     enSensorType oSensorType = sensor_type::EN_12_BIT_SENSOR;
     bool expectedValue = false;
-    bool calculated_value_amps= isReadingValid(InputValue,oSensorType);
-    assert(expectedValue_amps == calculated_value_amps);
+    bool calculatedValue = isReadingValid(InputValue,oSensorType);
+    assert(expectedValue == calculatedValue);
   }
 
   {
     int InputValue {-100};
     enSensorType oSensorType = sensor_type::EN_12_BIT_SENSOR;
     bool expectedValue = false;
-    bool calculated_value_amps= isReadingValid(InputValue,oSensorType);
-    assert(expectedValue_amps == calculated_value_amps);
+    bool calculatedValue = isReadingValid(InputValue,oSensorType);
+    assert(expectedValue == calculatedValue);
   }
 }
