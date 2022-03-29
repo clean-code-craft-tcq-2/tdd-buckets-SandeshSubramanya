@@ -18,6 +18,6 @@ unsigned getMaxVoltage(enSensorType oSensorType)
 int getAmphere(int InputValue, enSensorType oSensorType)
 {
   double voltage = getMaxVoltage(oSensorType);
-  double Ampheres = (float(InputValue)/voltage);
+  double Ampheres = 10 * (float(InputValue)/voltage);
   return round(Ampheres);
 }
