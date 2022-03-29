@@ -76,7 +76,6 @@ TEST_CASE(" Test With Single Element")
   int numReadings = 0;
   int startOfRange = 0;
   int endOfRange = 0;
-  
   if(!oCalculatedResults.empty())
   {
     SingleRangePairResult oCalculatedNumbersInRange = oCalculatedResults[0];  // get the map info.
@@ -84,9 +83,7 @@ TEST_CASE(" Test With Single Element")
     endOfRange = oCalculatedNumbersInRange.begin()->first.second;
     numReadings = oCalculatedNumbersInRange.begin()->second;
   }
-  
   assert(startOfRange == 4);
   assert(endOfRange == 4);
   assert(numReadings == 1);
-  
 }
