@@ -71,19 +71,19 @@ TEST_CASE("Test Range check functionality with several input values")
 TEST_CASE(" Test With Single Element") 
 {
   // test the code intially with the smallest range pair.
-  vector<int> oInputValues {4};
-  oRangeCheckResults oCalculatedResults = CalculateReadingsAndRangeFromValues(oInputValues);
-  int num_of_readings = 0;
-  int start_of_range = 0;
-  int end_of_range = 0;
+  vector<int> oSingleInputValue {4};
+  oRangeCheckResults oCalculatedResults = CalculateReadingsAndRangeFromValues(oSingleInputValue);
+  int numReadings = 0;
+  int startOfRange = 0;
+  int endOfRange = 0;
   if(!oCalculatedResults.empty())
   {
     SingleRangePairResult oCalculatedNumbersInRange = oCalculatedResults[0];  // get the map info.
-    start_of_range = oCalculatedNumbersInRange.begin()->first.first;
-    end_of_range = oCalculatedNumbersInRange.begin()->first.second;
-    num_of_readings = oCalculatedNumbersInRange.begin()->second;
+    startOfRange = oCalculatedNumbersInRange.begin()->first.first;
+    endOfRange = oCalculatedNumbersInRange.begin()->first.second;
+    numReadings = oCalculatedNumbersInRange.begin()->second;
   }
-  assert(start_of_range == 4);
-  assert(end_of_range == 4);
-  assert(num_of_readings == 1);
+  assert(startOfRange == 4);
+  assert(endOfRange == 4);
+  assert(numReadings == 1);
 }
