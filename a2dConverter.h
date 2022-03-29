@@ -27,5 +27,5 @@ int getAmphere(int InputValue, enSensorType oSensorType)
 bool isReadingValid(int InputValue, enSensorType oSensorType)
 {
     if(oSensorType == enSensorType::EN_12_BIT_SENSOR)
-        return (InputValue >=0 && InputValue >= MAX_12_BIT_VOLTAGE_READING);
+        return (0 <= InputValue && InputValue <= MAX_12_BIT_VOLTAGE_READING);
 }
