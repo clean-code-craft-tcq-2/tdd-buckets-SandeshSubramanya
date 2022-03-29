@@ -92,9 +92,29 @@ TEST_CASE(" Test With Single Element")
 
 TEST_CASE(" Test correctness of amphere calculation from given Input") 
 {
-  int InputValue {1046};
-  enSensorType oSensorType = sensor_type::EN_12_BIT_SENSOR;
-  int expectedValue_amps = 3;
-  int calculated_value_amps= getAmphere(InputValue,oSensorType);
-  assert(expectedValue_amps == calculated_value_amps);
+  {
+    int InputValue {1046};
+    enSensorType oSensorType = sensor_type::EN_12_BIT_SENSOR;
+    int expectedValue_amps = 3;
+    int calculated_value_amps= getAmphere(InputValue,oSensorType);
+    assert(expectedValue_amps == calculated_value_amps);
+  }
+  
+  {
+    int InputValue {0};
+    enSensorType oSensorType = sensor_type::EN_12_BIT_SENSOR;
+    int expectedValue_amps = 0;
+    int calculated_value_amps= getAmphere(InputValue,oSensorType);
+    assert(expectedValue_amps == calculated_value_amps);
+  }
+  
+  {
+    int InputValue {4094};
+    enSensorType oSensorType = sensor_type::EN_12_BIT_SENSOR;
+    int expectedValue_amps = 10;
+    int calculated_value_amps= getAmphere(InputValue,oSensorType);
+    assert(expectedValue_amps == calculated_value_amps);
+  }
+    
+  
 }
