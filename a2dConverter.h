@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-#include <math>
+#include <math.h>
 using namespace std;
 
 typedef enum sensor_type
