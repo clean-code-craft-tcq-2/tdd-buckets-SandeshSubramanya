@@ -1,16 +1,16 @@
 #include "rangecheck.h"
 #include <algorithm>
 
-unsigned getIndexOfLastElementInContinousRange(unsigned startIndex, const std::vector<int> &rfInputValues, int &count)
+unsigned getIndexOfLastElementInContinousRange(unsigned startIndex, const std::vector<int> &rfSortedInputValues, int &count)
 {
     unsigned IndexOfLastElementInContinousRange = 0;
     while (
-           (startIndex < rfInputValues.size())
+           (startIndex < rfSortedInputValues.size())
            &&
-           ((startIndex + 1) < rfInputValues.size())
+           ((startIndex + 1) < rfSortedInputValues.size())
            )
            {
-               if( (rfInputValues[startIndex+1] - rfInputValues[startIndex]) <= 1)
+               if( (rfSortedInputValues[startIndex+1] - rfSortedInputValues[startIndex]) <= 1)
                {
                    // continous range.
                    IndexOfLastElementInContinousRange = startIndex + 1;
