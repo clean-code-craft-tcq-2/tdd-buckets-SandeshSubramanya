@@ -19,5 +19,5 @@ int getAmphere(int InputValue, enSensorType oSensorType)
 {
   double voltage = getMaxVoltage(oSensorType);
   double Ampheres = 10 * (float(InputValue)/voltage);
-  return round(Ampheres);
+  return int(round(Ampheres));
 }
