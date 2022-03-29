@@ -1,6 +1,8 @@
 #define CATCH_CONFIG_MAIN  // This tells Catch to provide a main() - only do this in one cpp file
 #include "test/catch.hpp"
 #include "rangecheck.h"
+#include "a2dConverter.h"
+
 using namespace std;
 
 TEST_CASE(" Test Smallest Possible range") 
@@ -86,4 +88,13 @@ TEST_CASE(" Test With Single Element")
   assert(startOfRange == 4);
   assert(endOfRange == 4);
   assert(numReadings == 1);
+}
+
+TEST_CASE(" Test correctness of amphere calculation from given Input") 
+{
+  int InputValue {1046};
+  enSensorType oSensorType = sensor_type::EN_12_BIT_SENSOR;
+  int expectedValue_amps = 3;
+  int calculated_value_amps= getAmphere(InputValue,oSensorType);
+  assert(expectedValue_amps == calculated_value_amps);
 }
