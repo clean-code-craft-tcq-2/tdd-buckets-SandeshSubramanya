@@ -1,5 +1,7 @@
 #pragma once
 #include <string>
+#include <math>
+using namespace std;
 
 typedef enum sensor_type
 {
@@ -11,6 +13,11 @@ unsigned getMaxVoltage(enSensorType oSensorType)
 {
   if(oSensorType == enSensorType::EN_12_BIT_SENSOR)
     return 4094;
-  else
-    return 1023;
+}
+
+int getAmphere(int InputValue, enSensorType oSensorType)
+{
+  double voltage = getMaxVoltage(oSensorType);
+  double Ampheres = (float(InputValue)/voltage);
+  return round(Ampheres);
 }
