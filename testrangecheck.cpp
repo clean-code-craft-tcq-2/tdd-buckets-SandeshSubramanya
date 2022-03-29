@@ -139,4 +139,11 @@ TEST_CASE(" Test Validity of Input value for A2D converter")
     bool calculatedValue = isReadingValid(InputValue,oSensorType);
     assert(calculatedValue == false);
   }
+  
+  {
+    int InputValue {-100};
+    enSensorType oSensorType = sensor_type::EN_12_BIT_SENSOR;
+    bool calculatedValue = isReadingValid(InputValue,oSensorType);
+    assert(calculatedValue == false);
+  }  
 }
