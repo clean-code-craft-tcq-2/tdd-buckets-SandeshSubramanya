@@ -39,7 +39,7 @@ vector<int> ConvertA2DInputValuesToAmpheres(const vector<int> &rfA2DInputValue, 
     vector<int> oResultValuesInAmps;
     for(int InputVal: rfA2DInputValue)
     {
-        if(isReadingValid(InputVal,oSensorType)
+        if(isReadingValid(InputVal,oSensorType))
         {
             oResultValuesInAmps.push_back(getAmphere(InputVal));
         }   
