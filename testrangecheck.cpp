@@ -162,12 +162,40 @@ TEST_CASE(" Test converter for a list of A2D input Values:")
 
 TEST_CASE(" Test chaining of output from A2D converter to Range check") 
 {
+   vector<int> oInputValues {0,-152,4800,4600,5000,4000,1000,1500,2000,1228};
+   vector<int> oExpectedValues {0,10,2,4,5,3};
+   enSensorType oSensorType = sensor_type::EN_12_BIT_SENSOR;
+   vector<int> oCalculatedValues = ConvertA2DInputValuesToAmpheres(oInputValues,oSensorType);
+   assert(oCalculatedValues == oExpectedValues);
+    
+   // now chain the output to range check converter.
+   oRangeCheckResults oRangeCheckResultsExpected;  // create a vector with expected values to compare.
+  
+   SingleRangePairResult oTotalNumbersInRanges;
+   oTotalNumbersInRanges.insert({{0, 0}, 1});
+   oRangeCheckResultsExpected.push_back(oTotalNumbersInRanges);
+   oTotalNumbersInRanges.clear();
+  
+   oTotalNumbersInRanges.insert({{10, 10}, 1});
+   oRangeCheckResultsExpected.push_back(oTotalNumbersInRanges);
+   oTotalNumbersInRanges.clear();
+  
+   oTotalNumbersInRanges.insert({{2, 5}, 4});
+   oRangeCheckResultsExpected.push_back(oTotalNumbersInRanges);
+   oTotalNumbersInRanges.clear();
+  
+   oRangeCheckResults oCalculatedResults = CalculateReadingsAndRangeFromValues(oCalculatedValues);  // oCalculatedValues is the output of A2D converter.
+   assert(oCalculatedResults.size() == oRangeCheckResultsExpected.size());
+  
+  // check whether the calculated occurence in the range is as expected.
+  std::vector<SingleRangePairResult>::iterator itrCalculatedResult = oCalculatedResults.begin();
+  std::vector<SingleRangePairResult>::iterator itrExpectedResult = oRangeCheckResultsExpected.begin();
+  
+  for(; (itrCalculatedResult!=oCalculatedResults.end() && itrExpectedResult != oRangeCheckResultsExpected.end()); ++itrCalculatedResult,++itrExpectedResult)
   {
-    vector<int> oInputValues {0,-152,4800,4600,5000,4000,1000,1500,2000,1228};
-    vector<int> oExpectedValues {0,10,2,4,5,3};
-    enSensorType oSensorType = sensor_type::EN_12_BIT_SENSOR;
-    vector<int> oCalculatedValues = ConvertA2DInputValuesToAmpheres(oInputValues,oSensorType);
-    assert(oCalculatedValues == oExpectedValues);
+    assert(itrCalculatedResult->begin()->first.first == itrExpectedResult->begin()->first.first); //Range start comparison
+    assert(itrCalculatedResult->begin()->first.second == itrExpectedResult->begin()->first.second);  //Range end comparison
+    assert(itrCalculatedResult->begin()->second == itrExpectedResult->begin()->second); // number of readings.
   }
 }
 
