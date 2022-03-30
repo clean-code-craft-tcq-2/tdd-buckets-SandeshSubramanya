@@ -187,7 +187,7 @@ TEST_CASE(" Test chaining of output from A2D converter to Range check")
    oTotalNumbersInRanges.clear();*/
   
    oRangeCheckResults oCalculatedResults = CalculateReadingsAndRangeFromValues(oCalculatedValues);  // oCalculatedValues is the output of A2D converter.
-   //assert(oCalculatedResults.size() == oRangeCheckResultsExpected.size());
-   std::cout<<oCalculatedResults.size();
+   assert(oCalculatedResults.size() == oRangeCheckResultsExpected.size());
+   //std::cout<<oCalculatedResults.size();
 }
 
