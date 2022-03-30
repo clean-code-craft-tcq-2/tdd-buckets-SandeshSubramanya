@@ -158,6 +158,5 @@ TEST_CASE(" Test converter for a list of A2D input Values:")
     vector<int> oCalculatedValues = ConvertA2DInputValuesToAmpheres(oInputValues,oSensorType);
     assert(oCalculatedValues == oExpectedValues);
   }
-  
 }
 
