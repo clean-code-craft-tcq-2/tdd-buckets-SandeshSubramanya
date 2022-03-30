@@ -147,3 +147,17 @@ TEST_CASE(" Test Validity of Input value for A2D converter")
     assert(calculatedValue == false);
   }  
 }
+
+
+TEST_CASE(" Test converter for a list of A2D input Values:") 
+{
+  {
+    vector<int> oInputValues {0,-152,4800,4600,5000,4000,1000};
+    vector<int> oExpectedValues {0,10,2};
+    enSensorType oSensorType = sensor_type::EN_12_BIT_SENSOR;
+    vector<int> oCalculatedValues = ConvertA2DInputValuesToAmpheres(oInputValues,oSensorType);
+    assert(calculatedValue == oExpectedValues);
+  }
+  
+}
+
