@@ -41,7 +41,7 @@ vector<int> ConvertA2DInputValuesToAmpheres(const vector<int> &rfA2DInputValue, 
     {
         if(isReadingValid(InputVal,oSensorType))
         {
-            oResultValuesInAmps.push_back(getAmphere(InputVal));
+            oResultValuesInAmps.push_back(getAmphere(InputVal,oSensorType));
         }   
     }
     return oResultValuesInAmps;
