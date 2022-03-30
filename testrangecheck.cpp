@@ -169,8 +169,9 @@ TEST_CASE(" Test chaining of output from A2D converter to Range check")
    assert(oCalculatedValues == oExpectedValues);
     
    // now chain the output to range check converter.
-   oRangeCheckResults oRangeCheckResultsExpected;  // create a vector with expected values to compare.
   
+  // prepare expected values.
+   oRangeCheckResults oRangeCheckResultsExpected;  // create a vector with expected values to compare.
    SingleRangePairResult oTotalNumbersInRanges;
    oTotalNumbersInRanges.insert({{0, 0}, 1});
    oRangeCheckResultsExpected.push_back(oTotalNumbersInRanges);
@@ -183,19 +184,5 @@ TEST_CASE(" Test chaining of output from A2D converter to Range check")
    oTotalNumbersInRanges.insert({{2, 5}, 4});
    oRangeCheckResultsExpected.push_back(oTotalNumbersInRanges);
    oTotalNumbersInRanges.clear();
-  
-   oRangeCheckResults oCalculatedResults = CalculateReadingsAndRangeFromValues(oCalculatedValues);  // oCalculatedValues is the output of A2D converter.
-   assert(oCalculatedResults.size() == oRangeCheckResultsExpected.size());
-  
-  // check whether the calculated occurence in the range is as expected.
-  std::vector<SingleRangePairResult>::iterator itrCalculatedResult = oCalculatedResults.begin();
-  std::vector<SingleRangePairResult>::iterator itrExpectedResult = oRangeCheckResultsExpected.begin();
-  
-  for(; (itrCalculatedResult!=oCalculatedResults.end() && itrExpectedResult != oRangeCheckResultsExpected.end()); ++itrCalculatedResult,++itrExpectedResult)
-  {
-    assert(itrCalculatedResult->begin()->first.first == itrExpectedResult->begin()->first.first); //Range start comparison
-    assert(itrCalculatedResult->begin()->first.second == itrExpectedResult->begin()->first.second);  //Range end comparison
-    assert(itrCalculatedResult->begin()->second == itrExpectedResult->begin()->second); // number of readings.
-  }
 }
 
