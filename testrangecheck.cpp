@@ -184,5 +184,8 @@ TEST_CASE(" Test chaining of output from A2D converter to Range check")
    oTotalNumbersInRanges.insert({{2, 5}, 4});
    oRangeCheckResultsExpected.push_back(oTotalNumbersInRanges);
    oTotalNumbersInRanges.clear();
+  
+   oRangeCheckResults oCalculatedResults = CalculateReadingsAndRangeFromValues(oCalculatedValues);  // oCalculatedValues is the output of A2D converter.
+   assert(oCalculatedResults.size() == oRangeCheckResultsExpected.size());
 }
 
