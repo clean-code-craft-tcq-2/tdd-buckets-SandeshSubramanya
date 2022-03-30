@@ -156,7 +156,7 @@ TEST_CASE(" Test converter for a list of A2D input Values:")
     vector<int> oExpectedValues {0,10,2};
     enSensorType oSensorType = sensor_type::EN_12_BIT_SENSOR;
     vector<int> oCalculatedValues = ConvertA2DInputValuesToAmpheres(oInputValues,oSensorType);
-    assert(calculatedValue == oExpectedValues);
+    assert(oCalculatedValues == oExpectedValues);
   }
   
 }
